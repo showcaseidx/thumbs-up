@@ -1,0 +1,15 @@
+{
+  "name": "thumbs-up",
+  "version": "0.0.0",
+  "description": "A thumbnail server that pulls from a variety of sources.",
+  "author": "Tim Dorr <timdorr@showcaseidx.com>",
+  "license": "MIT",
+  "repository": "showcaseidx/thumbs-up",
+  "homepage": "https://github.com/showcaseidx/thumbs-up#readme",
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "is-fqdn": "^1.0.1",
+    "sharp": "^0.15.1"
+  }
+}
