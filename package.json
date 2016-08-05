@@ -7,9 +7,17 @@
   "repository": "showcaseidx/thumbs-up",
   "homepage": "https://github.com/showcaseidx/thumbs-up#readme",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint ."
+  },
   "dependencies": {
+    "aws-sdk": "^2.4.13",
+    "dotenv": "^2.0.0",
     "is-fqdn": "^1.0.1",
     "sharp": "^0.15.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.2.2"
   }
 }

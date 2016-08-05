@@ -1,0 +1,14 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "prefer-arrow-callback": 2,
+    "semi": [ 2, "never" ],
+    "no-console": 0
+  }
+}
