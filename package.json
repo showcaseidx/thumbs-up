@@ -7,6 +7,7 @@
   "repository": "showcaseidx/thumbs-up",
   "homepage": "https://github.com/showcaseidx/thumbs-up#readme",
   "main": "index.js",
+  "bin": "./bin/thumbs-up.js",
   "scripts": {
     "start": "node index.js",
     "lint": "eslint ."
