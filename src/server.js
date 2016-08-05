@@ -3,6 +3,7 @@ const isDomain = require('is-fqdn')
 const parseURL = require('./parseURL')
 
 const s3 = require('./sources/s3')
+const web = require('./sources/web')
 
 const sendImage = require('./sendImage')
 const { send404, sendError } = require('./errors')
@@ -19,9 +20,9 @@ module.exports = http.createServer((req, res) => {
       .then(sendImage(res, dimensions))
       .catch(sendError(res))
   } else if (isDomain(server)) {
-
-
-    res.end(server)
+    return web(res, server, path)
+      .then(sendImage(res, dimensions))
+      .catch(sendError(res))
   } else {
     return send404(res)
   }
