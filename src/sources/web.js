@@ -5,7 +5,7 @@ module.exports = (res, server, path) => new Promise((resolve, reject) => {
     url: `http://${server}/${path}`,
     encoding: null
   }, (error, response, body) => {
-    if (error) return reject({ code: response.statusCode, message: error.message })
+    if (error) return reject({ code: 500, message: error.message })
     resolve({ image: body, type: response.headers['content-type'] })
   })
 })
