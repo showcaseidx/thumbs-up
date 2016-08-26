@@ -1,11 +1,5 @@
-const request = require('request')
+const got = require('got')
 
-module.exports = (res, server, path) => new Promise((resolve, reject) => {
-  request({
-    url: `http://${server}/${path}`,
-    encoding: null
-  }, (error, response, body) => {
-    if (error) return reject({ code: 500, message: error.message })
-    resolve({ image: body, type: response.headers['content-type'] })
-  })
-})
+module.exports = (res, server, path) =>
+  got(`http://${server}/${path}`, { encoding: null })
+    .then(response => ({ image: response.body, type: response.headers['content-type'] }))
