@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const server = require('./src/server')
 
 // Start a server and listen to requests.
