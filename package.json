@@ -1,6 +1,6 @@
 {
   "name": "thumbs-up",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A thumbnail server that pulls from a variety of sources.",
   "author": "Tim Dorr <timdorr@showcaseidx.com>",
   "license": "MIT",
