@@ -3,8 +3,7 @@ const morgan = require('morgan')
 const isDomain = require('is-fqdn')
 const parseURL = require('./parseURL')
 
-const s3 = require('./sources/s3')
-const web = require('./sources/web')
+const fetch = require('./fetch')
 
 const sendImage = require('./sendImage')
 const { send404, sendError } = require('./errors')
@@ -20,12 +19,8 @@ module.exports = http.createServer((req, res) => {
 
   const { dimensions, server, path } = url
 
-  if (server === 's3') {
-    return s3(res, path)
-      .then(sendImage(res, dimensions))
-      .catch(sendError(res))
-  } else if (isDomain(server)) {
-    return web(res, server, path)
+  if (isDomain(server)) {
+    return fetch(res, server, path)
       .then(sendImage(res, dimensions))
       .catch(sendError(res))
   } else {

@@ -13,7 +13,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "aws-sdk": "^2.4.13",
     "dotenv": "^4.0.0",
     "got": "^6.3.0",
     "is-fqdn": "^1.0.1",
