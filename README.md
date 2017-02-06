@@ -26,7 +26,7 @@ http://server:8080/WidthxHeight/Server/Path
 - Path - The pathname for your image.
 
 For example:
-- `http://localhost:8080/500x500/s3/foo/bar.jpg`
+- `http://localhost:8080/500x500/idx.showcaseidx.com/images/noimages_large.png`
 - `http://localhost:8080/640/idx.showcaseidx.com/images/noimages_large.png`
 
 ## Configuration
