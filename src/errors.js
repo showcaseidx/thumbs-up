@@ -10,7 +10,7 @@ const send500 = (res, error) => {
   res.end(message)
 }
 
-const sendError = res => ({code, message}) => code == 404 ? send404(res) : send500(res, message)
+const sendError = res => ({statusCode, message}) => statusCode == 404 ? send404(res) : send500(res, message)
 
 module.exports = {
   sendError,
