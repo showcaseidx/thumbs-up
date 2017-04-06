@@ -11,5 +11,5 @@ module.exports = (image, [ width, height ], webP) => {
 
   webP ? thumbnail.webp() : thumbnail.jpeg()
 
-  return thumbnail.toBuffer()
+  return thumbnail.toBuffer({ resolveWithObject: true })
 }
