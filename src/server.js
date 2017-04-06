@@ -21,7 +21,7 @@ module.exports = http.createServer((req, res) => {
 
   if (isDomain(server)) {
     return fetch(res, server, path)
-      .then(sendImage(res, dimensions))
+      .then(sendImage(req, res, dimensions))
       .catch(sendError(res))
   } else {
     return send404(res)

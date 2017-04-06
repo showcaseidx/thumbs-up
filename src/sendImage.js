@@ -1,14 +1,16 @@
 const thumb = require('./thumb')
 
-const sendImage = (res, type) => (image) => {
-  res.writeHead(200, { 'Content-Type': type, 'Content-Length': image.length })
+const canWebP = req => typeof req.headers['accept'] == 'string' && req.headers['accept'].includes('image/webp')
+
+const sendResponse = (res, webP) => image => {
+  res.writeHead(200, { 'Content-Type': webP ? 'image/webp' : 'image/jpeg', 'Content-Length': image.length })
   res.end(image)
 }
 
 const { send500 } = require('./errors')
 
-module.exports = (res, dimensions) => ({image, type}) => {
-  thumb(image, dimensions)
-    .then(sendImage(res, type))
+module.exports = (req, res, dimensions) => image => {
+  thumb(image, dimensions, canWebP(req))
+    .then(sendResponse(res, canWebP(req)))
     .catch(error => send500(res, error))
 }
