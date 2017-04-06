@@ -16,7 +16,7 @@
     "got": "^6.3.0",
     "is-fqdn": "^1.0.1",
     "morgan": "^1.7.0",
-    "sharp": "^0.17.1"
+    "sharp": "^0.17.3"
   },
   "devDependencies": {
     "eslint": "^3.2.2"
