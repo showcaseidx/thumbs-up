@@ -3,7 +3,7 @@ const thumb = require('./thumb')
 const canWebP = req => typeof req.headers['accept'] == 'string' && req.headers['accept'].includes('image/webp')
 
 const sendResponse = res => ({ info: { format, size }, data:image }) => {
-  res.writeHead(200, { 'Content-Type': `image/${format}`, 'Content-Length': size })
+  res.writeHead(200, { 'Content-Type': `image/${format}`, 'Content-Length': size, 'Access-Control-Allow-Origin': '*' })
   res.end(image)
 }
 
