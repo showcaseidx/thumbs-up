@@ -1,9 +1,10 @@
 const thumb = require('./thumb')
+const etag = require('etag')
 
 const canWebP = req => typeof req.headers['accept'] == 'string' && req.headers['accept'].includes('image/webp')
 
 const sendResponse = res => ({ info: { format, size }, data:image }) => {
-  res.writeHead(200, { 'Content-Type': `image/${format}`, 'Content-Length': size, 'Access-Control-Allow-Origin': '*' })
+  res.writeHead(200, { 'Content-Type': `image/${format}`, 'Content-Length': size, 'Access-Control-Allow-Origin': '*', ETag: etag(image) })
   res.end(image)
 }
 
