@@ -2,14 +2,15 @@ const parseDimensions = dimensions => dimensions.split('x', 2).map(d => parseInt
 
 const splitter = new RegExp('^/([^/]+)/([^/]+)/(.+)$')
 
-module.exports = url => {
-  url = url.split('?')[0]
+module.exports = str => {
+  const [ url, query ] = str.split('?')
   const parts = url.match(splitter)
 
   if (parts)
     return {
       dimensions: parseDimensions(parts[1]),
       server: parts[2],
-      path: parts[3]
+      path: parts[3],
+      query,
     }
 }

@@ -17,10 +17,10 @@ module.exports = http.createServer((req, res) => {
 
   if (!url) return send404(res)
 
-  const { dimensions, server, path } = url
+  const { dimensions, server, path, query } = url
 
   if (isDomain(server)) {
-    return fetch(res, server, path)
+    return fetch(res, server, path, query)
       .then(sendImage(req, res, dimensions))
       .catch(sendError(res))
   } else {
