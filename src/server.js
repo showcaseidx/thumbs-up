@@ -10,7 +10,7 @@ const { send404, sendError } = require('./errors')
 
 const logger = morgan('combined')
 
-module.exports = http.createServer((req, res) => {
+module.exports = (req, res) => {
   logger(req, res, () => {})
 
   const url = parseURL(req.url)
@@ -26,4 +26,4 @@ module.exports = http.createServer((req, res) => {
   } else {
     return send404(res)
   }
-})
+}
