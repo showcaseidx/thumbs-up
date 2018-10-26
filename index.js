@@ -1,7 +1,15 @@
-const server = require('./src/server')
+const app = require('./src/server');
 
-// Start a server and listen to requests.
-const port = process.env.PORT || 8080
+function App(req,res) {
+    if (!req.url) {
+        req.url = '/';
+        req.path = '/';
+    }
+    return app(req,res);
+}
 
-server.on('error', e => console.error(e))
-server.listen(port, () => console.log(`Listening on port ${port}`))
+const thumbsUp = App
+
+module.exports = {
+    thumbsUp
+};
