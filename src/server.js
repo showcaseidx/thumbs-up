@@ -1,4 +1,3 @@
-const http = require('http')
 const morgan = require('morgan')
 const isDomain = require('is-fqdn')
 const parseURL = require('./parseURL')
