@@ -19,7 +19,9 @@ module.exports = (req, res) => {
 
   const { dimensions, server, path, query } = url
 
-  if (isDomain(server)) {
+  const [_proto, domain] = server.split('://')
+
+  if (isDomain(domain)) {
     return fetch(res, server, path, query)
       .then(sendImage(req, res, dimensions))
       .catch(sendError(res))
