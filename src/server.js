@@ -13,7 +13,6 @@ module.exports = (req, res) => {
   logger(req, res, () => {})
 
   const url = parseURL(req.url)
-  console.log(url)
 
   if (!url) return send404(res)
 
