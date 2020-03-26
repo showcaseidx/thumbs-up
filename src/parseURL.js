@@ -8,7 +8,9 @@ module.exports = str => {
 
   // www.resizer-domain.com/s/10x10/imagesourcefrommls.com
   if (parts)
+    console.log(parts)
     if (parts[1] && parts[1] == 's') {
+      console.log('https')
       return {
         dimensions: parseDimensions(parts[2]),
         server: `https://${parts[3]}`,
@@ -16,6 +18,7 @@ module.exports = str => {
         query,
       }
     } else {
+      console.log('http')
       return {
         dimensions: parseDimensions(parts[1]),
         server: `http://${parts[2]}`,
